@@ -1,0 +1,431 @@
+/* Reset and Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #e3e6e6; /* Amazon background grey */
+  color: #0f1111;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Amazon Header Styles */
+.navbar {
+  background-color: #131921; /* Amazon dark blue */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  gap: 15px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logo-name {
+  color: #ff9900; /* Amazon Amber */
+}
+
+.logo-domain {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.nav-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.light-text {
+  color: #ccc;
+  display: block;
+  font-size: 11px;
+}
+
+.bold-text {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* Search Bar */
+.nav-search {
+  display: flex;
+  flex-grow: 1;
+  max-width: 700px;
+  height: 40px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.search-select {
+  background-color: #f3f3f3;
+  border: none;
+  padding: 0 10px;
+  font-size: 12px;
+  border-right: 1px solid #cdcdcd;
+  outline: none;
+}
+
+.nav-search input {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-btn {
+  background-color: #febd69; /* Amazon orange button */
+  border: none;
+  width: 45px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-btn:hover {
+  background-color: #f3a847;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-option {
+  cursor: pointer;
+}
+
+.nav-cart {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-cart i {
+  font-size: 22px;
+  color: #ff9900;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  color: #ff9900;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* Sub-nav Bar */
+.sub-nav {
+  background-color: #232f3e;
+  padding: 8px 16px;
+}
+
+.sub-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.sub-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.sub-nav a:hover {
+  color: #ff9900;
+}
+
+/* Main Layout */
+.main-container {
+  display: flex;
+  flex: 1;
+  margin-bottom: 90px; /* Space for footer audio player */
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 230px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+}
+
+.sidebar h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin-top: 15px;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #111;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.sidebar li.active a, .sidebar a:hover {
+  background-color: #fff3e0;
+  color: #c45500;
+  font-weight: bold;
+}
+
+/* Content Area */
+.content-area {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.banner {
+  background: linear-gradient(to right, #232f3e, #37475a);
+  color: white;
+  padding: 25px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.banner h2 span {
+  color: #ff9900;
+}
+
+/* Amazon Product Style Music Grid */
+.music-section h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Music Card (Amazon Product Box) */
+.song-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.song-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.song-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.song-info {
+  margin-top: 10px;
+}
+
+.song-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: #0f1111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.song-artist {
+  font-size: 12px;
+  color: #565959;
+  margin-bottom: 5px;
+}
+
+.rating {
+  color: #ffa41c;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.card-btn {
+  background-color: #ffd814; /* Amazon yellow button */
+  border: 1px solid #fcd200;
+  border-radius: 20px;
+  padding: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.card-btn:hover {
+  background-color: #f7ca00;
+}
+
+/* Spotify-style Footer Player Bar */
+.player-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 85px;
+  background-color: #131921; /* Amazon header theme */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-top: 2px solid #ff9900;
+  z-index: 1000;
+}
+
+/* Now Playing Section */
+.now-playing {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 25%;
+}
+
+.now-playing img {
+  width: 55px;
+  height: 55px;
+  border-radius: 4px;
+}
+
+.track-details h4 {
+  font-size: 14px;
+  color: #fff;
+}
+
+.track-details p {
+  font-size: 11px;
+  color: #ccc;
+}
+
+.like-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.like-btn.liked {
+  color: #ff9900;
+}
+
+/* Player Controls */
+.player-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 45%;
+}
+
+.control-buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.control-buttons button {
+  background: none;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.control-buttons button:hover {
+  color: #ff9900;
+}
+
+.control-buttons .play-main {
+  background-color: #ff9900;
+  color: #131921;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.control-buttons .play-main:hover {
+  background-color: #febd69;
+  color: #131921;
+}
+
+.playback-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.playback-bar span {
+  font-size: 11px;
+  color: #ccc;
+  width: 30px;
+}
+
+.playback-bar input[type="range"], .volume-controls input[type="range"] {
+  accent-color: #ff9900;
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+/* Volume Control */
+.volume-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 20%;
+  justify-content: flex-end;
+}

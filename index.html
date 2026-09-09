@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Madhur - Web Player: Music for everyone</title>
+  <!-- Custom Website Favicon / Title Logo -->
+  <link rel="icon" type="image/png" href="logo.png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -12,7 +14,11 @@
   <!-- Top Navigation Bar -->
   <header class="top-nav">
     <div class="nav-left">
-      <a href="#" class="logo-btn"><i class="fa-brands fa-spotify"></i></a>
+      <!-- Website Logo Brand Container -->
+      <a href="#" class="brand-logo-link">
+        <img src="logo.png" alt="Madhur Logo" class="site-logo">
+        <i class="fa-brands fa-spotify spotify-icon"></i>
+      </a>
       <a href="#" class="icon-circle"><i class="fa-solid fa-house"></i></a>
       <div class="search-bar">
         <i class="fa-solid fa-magnifying-glass search-icon"></i>
@@ -26,7 +32,10 @@
       <a href="#" class="nav-link">Support</a>
       <a href="#" class="nav-link">Download</a>
       <span class="divider">|</span>
-      <a href="#" class="nav-link install-btn"><i class="fa-regular fa-circle-down"></i> Install App</a>
+      <!-- Zip Download Button -->
+      <button class="nav-link install-btn zip-dl-btn" id="download-zip-btn">
+        <i class="fa-solid fa-file-zipper"></i> Download Source (.zip)
+      </button>
       <a href="#" class="nav-link signup-link">Sign up</a>
       <button class="login-btn">Log in</button>
     </div>
@@ -104,6 +113,9 @@
     <button class="pill-btn banner-btn">Sign up for free</button>
   </footer>
 
+  <!-- CDN Libraries for dynamic Zip creation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

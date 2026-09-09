@@ -40,11 +40,24 @@ body {
   gap: 12px;
 }
 
-.logo-btn {
-  color: var(--text-main);
-  font-size: 26px;
+/* Brand Logo Styling */
+.brand-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   text-decoration: none;
   margin-right: 8px;
+}
+
+.site-logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.spotify-icon {
+  color: var(--text-main);
+  font-size: 26px;
 }
 
 .icon-circle {
@@ -101,6 +114,24 @@ body {
 
 .nav-link:hover {
   color: var(--text-main);
+}
+
+.zip-dl-btn {
+  background: var(--spotify-green);
+  color: var(--bg-black);
+  border: none;
+  border-radius: 50px;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s ease;
+}
+
+.zip-dl-btn:hover {
+  transform: scale(1.05);
+  color: var(--bg-black);
 }
 
 .divider {

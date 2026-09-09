@@ -3,125 +3,110 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Madhur - Listen to Music & Podcasts</title>
+  <title>Madhur - Web Player: Music for everyone</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- FontAwesome for Spotify-style icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- Amazon-Style Top Navigation Header -->
-  <header class="navbar">
-    <div class="nav-left">
+  <div class="app-container">
+    <!-- Spotify Left Navigation Sidebar -->
+    <aside class="sidebar">
       <div class="logo">
-        <span class="logo-name">Madhur</span><span class="logo-domain">.in</span>
+        <i class="fa-brands fa-spotify logo-icon"></i>
+        <span class="logo-text">Madhur</span>
       </div>
-      <div class="nav-location">
-        <i class="fa-solid fa-location-dot"></i>
-        <div>
-          <span class="light-text">Deliver to</span>
-          <span class="bold-text">Your Ears</span>
+
+      <nav class="nav-menu">
+        <ul>
+          <li class="active"><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+          <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i> Search</a></li>
+        </ul>
+      </nav>
+
+      <div class="library-section">
+        <div class="library-header">
+          <button class="lib-btn"><i class="fa-solid fa-book-bookmark"></i> Your Library</button>
+          <button class="add-btn"><i class="fa-solid fa-plus"></i></button>
+        </div>
+
+        <div class="library-box">
+          <h4>Create your first playlist</h4>
+          <p>It's easy, we'll help you</p>
+          <button class="badge-btn">Create playlist</button>
+        </div>
+
+        <div class="library-box">
+          <h4>Let's find some podcasts to follow</h4>
+          <p>We'll keep you updated on new episodes</p>
+          <button class="badge-btn">Browse podcasts</button>
         </div>
       </div>
-    </div>
-
-    <!-- Search Bar -->
-    <div class="nav-search">
-      <select class="search-select">
-        <option value="all">All Music</option>
-        <option value="artists">Artists</option>
-        <option value="albums">Albums</option>
-        <option value="podcasts">Podcasts</option>
-      </select>
-      <input type="text" id="search-input" placeholder="Search songs, artists, or podcasts...">
-      <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </div>
-
-    <div class="nav-right">
-      <div class="nav-option">
-        <span class="light-text">Hello, Listener</span>
-        <span class="bold-text">Account & Lists</span>
-      </div>
-      <div class="nav-option">
-        <span class="light-text">Library</span>
-        <span class="bold-text">& Favorites</span>
-      </div>
-      <div class="nav-cart">
-        <i class="fa-solid fa-music"></i>
-        <span class="cart-count" id="queue-count">0</span>
-        <span class="bold-text">Queue</span>
-      </div>
-    </div>
-  </header>
-
-  <!-- Amazon Sub-header Navigation Bar -->
-  <nav class="sub-nav">
-    <ul>
-      <li><a href="#"><i class="fa-solid fa-bars"></i> All Categories</a></li>
-      <li><a href="#">Top Charts</a></li>
-      <li><a href="#">New Releases</a></li>
-      <li><a href="#">Radio</a></li>
-      <li><a href="#">Podcasts</a></li>
-      <li><a href="#">Madhur Prime Music</a></li>
-    </ul>
-  </nav>
-
-  <!-- Main Container -->
-  <div class="main-container">
-    
-    <!-- Sidebar / Filter Menu -->
-    <aside class="sidebar">
-      <h3>Explore Music</h3>
-      <ul>
-        <li class="active"><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li><a href="#"><i class="fa-solid fa-fire"></i> Trending Now</a></li>
-        <li><a href="#"><i class="fa-solid fa-compact-disc"></i> Albums</a></li>
-        <li><a href="#"><i class="fa-solid fa-radio"></i> Stations</a></li>
-      </ul>
-
-      <h3>Your Library</h3>
-      <ul>
-        <li><a href="#"><i class="fa-solid fa-heart"></i> Liked Songs</a></li>
-        <li><a href="#"><i class="fa-solid fa-list-check"></i> Playlists</a></li>
-        <li><a href="#"><i class="fa-solid fa-clock-rotate-left"></i> Recently Played</a></li>
-      </ul>
     </aside>
 
-    <!-- Content Area: Song Cards Grid (Amazon Product Style) -->
-    <main class="content-area">
-      <section class="banner">
-        <h2>Unlimited Music with <span>Madhur Prime</span></h2>
-        <p>Stream millions of songs and podcasts ad-free.</p>
-      </section>
+    <!-- Main Content Area -->
+    <main class="main-view">
+      <!-- Spotify Top Navigation Header -->
+      <header class="top-bar">
+        <div class="nav-buttons">
+          <button class="circle-btn"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="circle-btn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
 
+        <!-- Search Bar -->
+        <div class="search-container">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="search-input" placeholder="What do you want to play?">
+        </div>
+
+        <div class="user-menu">
+          <button class="badge-btn white">Explore Premium</button>
+          <button class="badge-btn dark"><i class="fa-regular fa-circle-down"></i> Install App</button>
+          <button class="circle-btn user-avatar"><i class="fa-regular fa-user"></i></button>
+        </div>
+      </header>
+
+      <!-- Category Filter Pills -->
+      <div class="category-pills">
+        <button class="pill active">All</button>
+        <button class="pill">Music</button>
+        <button class="pill">Podcasts</button>
+      </div>
+
+      <!-- Music Cards Sections -->
       <section class="music-section">
-        <h2>Featured Track Listings</h2>
+        <div class="section-header">
+          <h2>Popular Radio & Tracks</h2>
+          <a href="#" class="show-all">Show all</a>
+        </div>
         <div class="grid-container" id="music-grid">
-          <!-- Music cards will be loaded via JS -->
+          <!-- Track Cards dynamically rendered via JavaScript -->
         </div>
       </section>
     </main>
   </div>
 
-  <!-- Spotify-Style Sticky Audio Player Bar -->
+  <!-- Spotify Sticky Bottom Player Bar -->
   <footer class="player-bar">
-    <!-- Current Track Playing Info -->
+    <!-- Left: Now Playing Info -->
     <div class="now-playing">
-      <img id="player-img" src="https://picsum.photos/id/1025/100/100" alt="Album Cover">
+      <img id="player-img" src="https://picsum.photos/id/1018/100/100" alt="Album Cover">
       <div class="track-details">
         <h4 id="player-title">Select a Song</h4>
         <p id="player-artist">Madhur Music</p>
       </div>
-      <button class="like-btn" id="like-btn"><i class="fa-regular fa-heart"></i></button>
+      <button class="icon-btn" id="like-btn"><i class="fa-regular fa-heart"></i></button>
     </div>
 
-    <!-- Audio Player Controls -->
+    <!-- Center: Audio Player Controls -->
     <div class="player-controls">
       <div class="control-buttons">
-        <button id="shuffle-btn"><i class="fa-solid fa-shuffle"></i></button>
-        <button id="prev-btn"><i class="fa-solid fa-backward-step"></i></button>
-        <button id="play-btn" class="play-main"><i class="fa-solid fa-play"></i></button>
-        <button id="next-btn"><i class="fa-solid fa-forward-step"></i></button>
-        <button id="repeat-btn"><i class="fa-solid fa-repeat"></i></button>
+        <button class="icon-btn" id="shuffle-btn"><i class="fa-solid fa-shuffle"></i></button>
+        <button class="icon-btn" id="prev-btn"><i class="fa-solid fa-backward-step"></i></button>
+        <button class="play-main" id="play-btn"><i class="fa-solid fa-play"></i></button>
+        <button class="icon-btn" id="next-btn"><i class="fa-solid fa-forward-step"></i></button>
+        <button class="icon-btn" id="repeat-btn"><i class="fa-solid fa-repeat"></i></button>
       </div>
       <div class="playback-bar">
         <span id="current-time">0:00</span>
@@ -130,8 +115,10 @@
       </div>
     </div>
 
-    <!-- Volume Controls -->
+    <!-- Right: Volume & Extra Controls -->
     <div class="volume-controls">
+      <button class="icon-btn"><i class="fa-solid fa-microphone"></i></button>
+      <button class="icon-btn"><i class="fa-solid fa-layer-group"></i></button>
       <i class="fa-solid fa-volume-high" id="volume-icon"></i>
       <input type="range" id="volume-bar" value="80" min="0" max="100">
     </div>

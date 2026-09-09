@@ -1,40 +1,36 @@
-// Sample Music Data List (Using copyright-free audio samples)
+// Sample Music Data
 const songs = [
   {
     id: 1,
     title: "Acoustic Breeze",
     artist: "Benjamin Tissot",
     src: "https://www.bensound.com/bensound-music/bensound-acousticbreeze.mp3",
-    cover: "https://picsum.photos/id/1018/200/200",
-    rating: "★★★★★"
+    cover: "https://picsum.photos/id/1018/300/300"
   },
   {
     id: 2,
     title: "Creative Minds",
     artist: "Bensound Royalty Free",
     src: "https://www.bensound.com/bensound-music/bensound-creativeminds.mp3",
-    cover: "https://picsum.photos/id/1025/200/200",
-    rating: "★★★★☆"
+    cover: "https://picsum.photos/id/1025/300/300"
   },
   {
     id: 3,
     title: "Ukulele Beats",
     artist: "Acoustic Pop",
     src: "https://www.bensound.com/bensound-music/bensound-ukulele.mp3",
-    cover: "https://picsum.photos/id/1039/200/200",
-    rating: "★★★★★"
+    cover: "https://picsum.photos/id/1039/300/300"
   },
   {
     id: 4,
     title: "Sunny Days",
     artist: "Jazzy Vibes",
     src: "https://www.bensound.com/bensound-music/bensound-sunny.mp3",
-    cover: "https://picsum.photos/id/1043/200/200",
-    rating: "★★★★☆"
+    cover: "https://picsum.photos/id/1043/300/300"
   }
 ];
 
-// DOM Elements Selection
+// DOM Elements
 const musicGrid = document.getElementById("music-grid");
 const audio = document.getElementById("audio-element");
 const playBtn = document.getElementById("play-btn");
@@ -47,36 +43,33 @@ const volumeBar = document.getElementById("volume-bar");
 const playerImg = document.getElementById("player-img");
 const playerTitle = document.getElementById("player-title");
 const playerArtist = document.getElementById("player-artist");
-const queueCount = document.getElementById("queue-count");
 const searchInput = document.getElementById("search-input");
 const likeBtn = document.getElementById("like-btn");
 
 let currentSongIndex = 0;
 let isPlaying = false;
-let queue = 0;
 
-// Render songs grid (Amazon Product Style)
+// Render Songs in Spotify Card Format
 function renderSongs(songList) {
   musicGrid.innerHTML = "";
   songList.forEach((song, index) => {
     const card = document.createElement("div");
-    card.classList.add("song-card");
+    card.classList.add("spotify-card");
     card.innerHTML = `
-      <img src="${song.cover}" alt="${song.title}">
-      <div class="song-info">
-        <div class="song-title">${song.title}</div>
-        <div class="song-artist">${song.artist}</div>
-        <div class="rating">${song.rating}</div>
+      <div class="card-img-wrapper">
+        <img src="${song.cover}" alt="${song.title}">
+        <button class="play-hover-btn" onclick="playSelectedSong(${index})">
+          <i class="fa-solid fa-play"></i>
+        </button>
       </div>
-      <button class="card-btn" onclick="playSelectedSong(${index})">
-        <i class="fa-solid fa-play"></i> Listen Now
-      </button>
+      <div class="card-title">${song.title}</div>
+      <div class="card-artist">${song.artist}</div>
     `;
     musicGrid.appendChild(card);
   });
 }
 
-// Load track into the player
+// Load Song Details
 function loadSong(song) {
   playerTitle.textContent = song.title;
   playerArtist.textContent = song.artist;
@@ -84,16 +77,14 @@ function loadSong(song) {
   audio.src = song.src;
 }
 
-// Play selected song
+// Play Selected Track
 function playSelectedSong(index) {
   currentSongIndex = index;
   loadSong(songs[currentSongIndex]);
   playAudio();
-  queue++;
-  queueCount.textContent = queue;
 }
 
-// Toggle Play/Pause
+// Play/Pause Functions
 function playAudio() {
   isPlaying = true;
   audio.play();
@@ -115,7 +106,7 @@ playBtn.addEventListener("click", () => {
   }
 });
 
-// Previous and Next Song Navigation
+// Navigation Controls
 prevBtn.addEventListener("click", () => {
   currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
   loadSong(songs[currentSongIndex]);
@@ -129,14 +120,13 @@ nextBtn.addEventListener("click", () => {
 });
 
 // Update Progress Bar
-audio.addEventListener("timeupdate", (e) => {
-  const { currentTime, duration } = e.srcElement;
+audio.addEventListener("timeupdate", () => {
+  const { currentTime, duration } = audio;
   if (isNaN(duration)) return;
-  
+
   const progressPercent = (currentTime / duration) * 100;
   progressBar.value = progressPercent;
 
-  // Formatting Time
   const currentMin = Math.floor(currentTime / 60);
   const currentSec = Math.floor(currentTime % 60);
   const durationMin = Math.floor(duration / 60);
@@ -146,7 +136,7 @@ audio.addEventListener("timeupdate", (e) => {
   durationTimeEl.textContent = `${durationMin}:${durationSec < 10 ? '0' : ''}${durationSec}`;
 });
 
-// Seek Track
+// Seek Track Location
 progressBar.addEventListener("input", () => {
   const seekTime = (progressBar.value / 100) * audio.duration;
   audio.currentTime = seekTime;
@@ -157,7 +147,7 @@ volumeBar.addEventListener("input", (e) => {
   audio.volume = e.target.value / 100;
 });
 
-// Search functionality
+// Search Filter
 searchInput.addEventListener("input", (e) => {
   const query = e.target.value.toLowerCase();
   const filtered = songs.filter(song => 
@@ -178,6 +168,6 @@ likeBtn.addEventListener("click", () => {
   }
 });
 
-// Initial Setup
+// Initialization
 renderSongs(songs);
 loadSong(songs[0]);

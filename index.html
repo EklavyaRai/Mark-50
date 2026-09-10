@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Madhur - Web Player: Music for everyone</title>
-  <!-- Custom Website Favicon / Title Logo -->
+  <title>Madhur Music - Web Player</title>
+  <!-- Custom Favicon -->
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -14,10 +14,9 @@
   <!-- Top Navigation Bar -->
   <header class="top-nav">
     <div class="nav-left">
-      <!-- Website Logo Brand Container -->
       <a href="#" class="brand-logo-link">
         <img src="logo.png" alt="Madhur Logo" class="site-logo">
-        <i class="fa-brands fa-spotify spotify-icon"></i>
+        <span class="brand-name">Madhur</span>
       </a>
       <a href="#" class="icon-circle"><i class="fa-solid fa-house"></i></a>
       <div class="search-bar">
@@ -87,7 +86,7 @@
           <a href="#" class="show-all">Show all</a>
         </div>
         <div class="grid-container" id="trending-grid">
-          <!-- Dynamic Trending Cards -->
+          <!-- Dynamic Cards Inserted Here -->
         </div>
       </section>
 
@@ -98,19 +97,41 @@
           <a href="#" class="show-all">Show all</a>
         </div>
         <div class="grid-container artist-grid" id="artist-grid">
-          <!-- Dynamic Artist Cards -->
+          <!-- Dynamic Artist Cards Inserted Here -->
         </div>
       </section>
     </main>
   </div>
 
-  <!-- Bottom CTA Preview Banner -->
-  <footer class="preview-banner">
-    <div class="banner-text">
-      <h4>Preview of Spotify</h4>
-      <p>Sign up to get unlimited songs and podcasts with occasional ads. No credit card needed.</p>
+  <!-- Interactive Music Player Bar -->
+  <footer class="player-bar">
+    <div class="now-playing">
+      <img id="player-img" src="https://picsum.photos/id/1015/300/300" alt="Current Track">
+      <div class="track-details">
+        <div id="player-title" class="track-title">Vaaroon Forever</div>
+        <div id="player-artist" class="track-artist">Anand Bhaskar, Romy, Shreya Ghoshal</div>
+      </div>
     </div>
-    <button class="pill-btn banner-btn">Sign up for free</button>
+
+    <div class="player-controls">
+      <div class="control-buttons">
+        <button class="ctrl-btn"><i class="fa-solid fa-shuffle"></i></button>
+        <button class="ctrl-btn"><i class="fa-solid fa-backward-step"></i></button>
+        <button class="ctrl-btn play-btn" id="main-play-btn"><i class="fa-solid fa-play" id="play-icon"></i></button>
+        <button class="ctrl-btn"><i class="fa-solid fa-forward-step"></i></button>
+        <button class="ctrl-btn"><i class="fa-solid fa-repeat"></i></button>
+      </div>
+      <div class="playback-bar">
+        <span class="time" id="current-time">0:00</span>
+        <input type="range" id="seek-bar" value="0" max="100">
+        <span class="time" id="total-time">3:45</span>
+      </div>
+    </div>
+
+    <div class="extra-controls">
+      <i class="fa-solid fa-volume-high"></i>
+      <input type="range" id="volume-bar" value="80" max="100">
+    </div>
   </footer>
 
   <!-- CDN Libraries for dynamic Zip creation -->

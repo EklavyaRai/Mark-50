@@ -3,55 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">Childhood - Cartoon Details</title>
+    <title>Childhood - Cartoon Portal</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="netflix-interface">
+<body>
 
     <!-- Header Navbar -->
-    <header class="navbar netflix-nav">
+    <header class="navbar">
         <div class="logo">Child<span>hood</span></div>
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="#">TV Shows</a>
-            <a href="#">Movies</a>
-            <a href="#">New & Popular</a>
-        </nav>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search cartoons..." onkeyup="handleSearch()">
+        </div>
     </header>
 
-    <!-- Hero Feature Banner -->
-    <section class="hero-banner" id="heroBanner">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="badge-tag">#1 in Shows Today</div>
-            <h1 class="hero-title" id="showTitle">Loading...</h1>
-            <p class="hero-description" id="showDescription">Loading details...</p>
-            
-            <div class="hero-buttons">
-                <button class="btn btn-play" id="playBtn">▶ Play</button>
-                <button class="btn btn-info" id="moreInfoBtn">ⓘ More Info</button>
+    <!-- Main Content Area -->
+    <main class="content-area">
+
+        <!-- Main Page Heading -->
+        <h1 class="main-heading">Explore Your Favorite Childhood Cartoons</h1>
+
+        <!-- Popular Cartoons Section -->
+        <section class="cartoon-section" id="section-popular">
+            <h2 class="section-title">櫨 Popular Cartoons of All Time</h2>
+            <div class="cartoon-grid" id="grid-popular"></div>
+        </section>
+
+        <!-- Cartoon Network Section -->
+        <section class="cartoon-section" id="section-cartoon-network">
+            <h2 class="section-title">銅 Cartoon Network Shows</h2>
+            <div class="cartoon-grid" id="grid-cartoon-network"></div>
+        </section>
+
+        <!-- Nickelodeon Section -->
+        <section class="cartoon-section" id="section-nickelodeon">
+            <h2 class="section-title">濠 Nickelodeon Shows</h2>
+            <div class="cartoon-grid" id="grid-nickelodeon"></div>
+        </section>
+
+        <!-- Disney Section -->
+        <section class="cartoon-section" id="section-disney">
+            <h2 class="section-title">床 Disney Channel & XD Shows</h2>
+            <div class="cartoon-grid" id="grid-disney"></div>
+        </section>
+
+    </main>
+
+    <!-- Video Player Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePlayer()">&times;</span>
+            <h2 id="playerTitle">Now Playing</h2>
+            <div class="video-container">
+                <iframe id="videoPlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             </div>
         </div>
-    </section>
-
-    <!-- Dynamic Section for More Shows from Same Category -->
-    <section class="content-area netflix-content">
-        <div class="cartoon-section">
-            <h2 class="section-title" id="categoryTitle">More Shows</h2>
-            <div class="cartoon-grid" id="relatedGrid"></div>
-        </div>
-    </section>
-
+    </div>
+<!-- Footer Section -->
     <footer class="footer">
         <p>&copy; 2026 Childhood Cartoon Portal. All rights reserved.</p>
+        <p class="footer-disclaimer">Disclaimer: All cartoon character rights, images, and embedded videos belong to their respective creators and networks.</p>
     </footer>
-
     <script src="script.js"></script>
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            initShowPage();
-        });
-    </script>
 </body>
 </html>

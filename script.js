@@ -234,18 +234,6 @@ const cartoonData = {
     ]
 };
 
-// Global variables for active video tracking
-let activeVideoUrl = "";
-
-// Helper function to search cartoon details across categories
-function findCartoonData(title) {
-    for (const key in cartoonData) {
-        const found = cartoonData[key].find(item => item.title === title);
-        if (found) return found;
-    }
-    return null;
-}
-
 // Render cards into a specific section grid
 function renderSection(categoryKey, containerId, filterText = "") {
     const grid = document.getElementById(containerId);
@@ -268,7 +256,7 @@ function renderSection(categoryKey, containerId, filterText = "") {
     filtered.forEach(item => {
         const card = document.createElement("div");
         card.className = "card";
-        card.onclick = () => openPlayer(item.title, item.videoUrl);
+        card.onclick = () => openPlayer(item.title, item.videoUrl, item.type, item.thumbnail);
 
         const imgSrc = item.thumbnail;
 
@@ -303,42 +291,118 @@ function handleSearch() {
     renderAllSections(query);
 }
 
-// Full-screen Hero Player Controls
-function openPlayer(title, videoUrl) {
-    activeVideoUrl = videoUrl;
-    const itemData = findCartoonData(title);
-
-    const titleElement = document.getElementById("playerTitle");
-    const metaElement = document.getElementById("playerMeta");
-    const badgeElement = document.getElementById("playerBadge");
-    const videoElement = document.getElementById("videoPlayer");
-    const modalElement = document.getElementById("videoModal");
-
-    if (titleElement) titleElement.innerText = title;
-    if (metaElement && itemData) {
-        metaElement.innerText = `${itemData.type} • ${itemData.era || itemData.channel || 'Classic'}`;
-    }
-    if (badgeElement && itemData) {
-        badgeElement.innerText = itemData.era ? itemData.era : "MUST WATCH";
-    }
-
-    if (videoElement) {
-        const autoplayUrl = videoUrl.includes("?") ? `${videoUrl}&autoplay=1` : `${videoUrl}?autoplay=1`;
-        videoElement.src = autoplayUrl;
-    }
+// Open Cartoon Player Interface in a New Tab
+function openPlayer(title, videoUrl, genre, thumbnail) {
+    const autoplayUrl = videoUrl.includes("?") ? `${videoUrl}&autoplay=1` : `${videoUrl}?autoplay=1`;
     
-    if (modalElement) {
-        modalElement.style.display = "block";
-        document.body.style.overflow = "hidden";
-    }
-}
+    const newTab = window.open("", "_blank");
+    if (!newTab) return;
 
-function restartVideo() {
-    const videoElement = document.getElementById("videoPlayer");
-    if (videoElement && activeVideoUrl) {
-        const autoplayUrl = activeVideoUrl.includes("?") ? `${activeVideoUrl}&autoplay=1` : `${activeVideoUrl}?autoplay=1`;
-        videoElement.src = autoplayUrl;
-    }
+    const htmlContent = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>${title} - Childhood</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <style>
+            body {
+                margin: 0;
+                background-color: #0b0d12;
+                color: #ffffff;
+                font-family: 'Poppins', sans-serif;
+            }
+            .hero-player-container {
+                position: relative;
+                width: 100%;
+                min-height: 80vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                background: linear-gradient(to top, #0b0d12 10%, transparent 90%), url('${thumbnail}') center/cover no-repeat;
+                padding: 4rem 5%;
+                box-sizing: border-box;
+            }
+            .backdrop-overlay {
+                position: absolute;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(11, 13, 18, 0.75);
+                backdrop-filter: blur(8px);
+                z-index: 1;
+            }
+            .player-content {
+                position: relative;
+                z-index: 2;
+                max-width: 1000px;
+                margin: 0 auto;
+                width: 100%;
+            }
+            .player-title {
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+                color: #ffffff;
+            }
+            .player-meta {
+                font-size: 1rem;
+                color: #38bdf8;
+                margin-bottom: 1.5rem;
+            }
+            .video-frame-wrapper {
+                position: relative;
+                padding-bottom: 56.25%;
+                height: 0;
+                overflow: hidden;
+                border-radius: 12px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+                border: 1px solid #334155;
+                background: #000;
+            }
+            .video-frame-wrapper iframe {
+                position: absolute;
+                top: 0; left: 0;
+                width: 100%; height: 100%;
+                border: none;
+            }
+            .back-btn {
+                display: inline-block;
+                margin-top: 1.5rem;
+                padding: 0.6rem 1.2rem;
+                background-color: #f43f5e;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 8px;
+                font-weight: 600;
+                transition: background 0.2s;
+            }
+            .back-btn:hover {
+                background-color: #e11d48;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="navbar">
+            <div class="logo">Child<span>hood</span></div>
+        </header>
+        <div class="hero-player-container">
+            <div class="backdrop-overlay"></div>
+            <div class="player-content">
+                <h1 class="player-title">${title}</h1>
+                <p class="player-meta">${genre || "Animation"}</p>
+                <div class="video-frame-wrapper">
+                    <iframe src="${autoplayUrl}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <a href="javascript:window.close()" class="back-btn">← Close Tab</a>
+            </div>
+        </div>
+    </body>
+    </html>
+    `;
+
+    newTab.document.write(htmlContent);
+    newTab.document.close();
 }
 
 function closePlayer() {
@@ -346,10 +410,7 @@ function closePlayer() {
     const modalElement = document.getElementById("videoModal");
 
     if (videoElement) videoElement.src = "";
-    if (modalElement) {
-        modalElement.style.display = "none";
-        document.body.style.overflow = "auto";
-    }
+    if (modalElement) modalElement.style.display = "none";
 }
 
 // Initial render

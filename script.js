@@ -1,6 +1,7 @@
 const cartoonData = {
     popular: [
         { 
+            <a href="Cartoon/Popular/Doremon/index.html">
             title: "Doraemon", 
             type: "Sci-Fi Comedy", 
             channel: "Disney (Hungama TV)", 
@@ -8,6 +9,7 @@ const cartoonData = {
             videoUrl: "https://www.youtube-nocookie.com/embed/uVu-D2rC-Lg?playlist=uVu-D2rC-Lg&autoplay=1&iv_load_policy=3&loop=1&start=",
             shortDesc: "A robotic cat travels back in time from the 22nd century to aid a young boy named Nobita Nobi using futuristic gadgets.",
             detailedInfo: "Doraemon is a Japanese manga and anime series created by Fujiko F. Fujio. The story revolves around a robotic cat named Doraemon, who travels back in time from the 22nd century to aid a young boy named Nobita Nobi using advanced gadgets from his 4D pocket."
+            </a>
         },
         { 
             title: "Tom and Jerry", 

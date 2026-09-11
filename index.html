@@ -1,73 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Childhood - Cartoon Details</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cartoon Stream</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Font Awesome for Play and Info Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="netflix-body">
+<body>
+    <!-- In doremon/index.html Header Navbar -->
+<header class="navbar netflix-nav">
+    <div class="logo">Child<span>hood</span></div>
+    <nav class="nav-links">
+        <!-- Back to Main Page Link -->
+        <a href="../index.html">← Back to Main Home</a>
+        <a href="#">TV Shows</a>
+        <a href="#">Cartoons</a>
+        <a href="#">New & Popular</a>
+        <a href="#">My List</a>
+    </nav>
+</header>
 
-    <!-- Header Navbar -->
-    <header class="navbar netflix-nav">
-        <div class="logo">Child<span>hood</span></div>
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="#">TV Shows</a>
-            <a href="#">Cartoons</a>
-            <a href="#">New & Popular</a>
-            <a href="#">My List</a>
-        </nav>
-    </header>
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <!-- Replaced Netflix logo with your website name -->
+      <h1 class="brand-logo" id="site-logo">CARTOON HUB</h1>
+      <nav class="nav-links">
+        <a href="#" class="active" onclick="filterCategory('all', event)">Home</a>
+        <a href="#" onclick="filterCategory('action', event)">Action</a>
+        <a href="#" onclick="filterCategory('comedy', event)">Comedy</a>
+        <a href="#" onclick="filterCategory('sci-fi', event)">Sci-Fi</a>
+        <a href="#" onclick="filterCategory('popular', event)">Popular</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Netflix-Style Hero Section -->
-    <section class="hero-container" id="heroSection">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 id="heroTitle" class="hero-title">Cartoon Title</h1>
-            <div class="hero-badge">#1 in Cartoons Today</div>
-            <p id="heroShortDesc" class="hero-desc">
-                Loading description...
-            </p>
-            <div class="hero-buttons">
-                <button id="playBtn" class="btn btn-play">
-                    <span class="btn-icon">▶</span> Play
-                </button>
-                <button id="moreInfoBtn" class="btn btn-info">
-                    <span class="btn-icon">ⓘ</span> More Info
-                </button>
-            </div>
-        </div>
-        
-        <!-- Right Side Branding -->
-        <div class="hero-brand-side">
-            <div class="brand-text">Child<span>hood</span></div>
-            <p class="brand-sub">interface<br><span>Mobile & TV/Desktop</span></p>
-        </div>
-    </section>
+  <!-- Hero / Featured Banner Area -->
+  <section class="hero-banner" id="hero-banner">
+    <div class="banner-overlay"></div>
+    <div class="hero-content">
+      <!-- Title of the currently selected cartoon -->
+      <h1 class="show-title" id="hero-title">Cartoon Title</h1>
+      
+      <!-- Ranking / Tag line -->
+      <div class="badge-ranking" id="hero-badge">#1 in Cartoons Today</div>
+      
+      <!-- Brief short summary -->
+      <p class="hero-description" id="hero-desc">
+        Short description about the cartoon episode or movie will appear here.
+      </p>
 
-    <!-- Category / More Shows Section -->
-    <main class="content-area netflix-content">
-        <section class="cartoon-section">
-            <h2 class="section-title" id="categoryTitle">Popular on Childhood</h2>
-            <div class="cartoon-grid" id="grid-related"></div>
-        </section>
-    </main>
+      <!-- Action Buttons -->
+      <div class="hero-buttons">
+        <button class="btn btn-play" id="play-btn">
+          <i class="fa-solid fa-play"></i> Play
+        </button>
+        <button class="btn btn-info" id="info-btn">
+          <i class="fa-solid fa-circle-info"></i> More Info
+        </button>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2026 Childhood Cartoon Portal. All rights reserved.</p>
-        <p class="footer-disclaimer">Disclaimer: All cartoon character rights, images, and embedded videos belong to their respective creators and networks.</p>
-    </footer>
+  <!-- Slider / Carousel Section -->
+  <main class="content-section">
+    <h2 class="section-title" id="section-heading">Popular on Cartoon Hub</h2>
+    <div class="cards-container" id="cards-container">
+      <!-- Dynamic cartoon thumbnails will be populated here by JavaScript -->
+    </div>
+  </main>
 
-    <script src="script.js"></script>
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            if (typeof initDetailsPage === 'function') {
-                initDetailsPage();
-            }
-        });
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -164,7 +164,7 @@ const cartoonData = {
 
 // Open the new website inside the 'doremon' folder in the SAME TAB
 function openCartoonInterface(categoryKey, title) {
-    const url = `doremon/index.html?category=${encodeURIComponent(categoryKey)}&title=${encodeURIComponent(title)}`;
+    const url = `Cartoon/Popular/Doremon/index.html?category=${encodeURIComponent(categoryKey)}&title=${encodeURIComponent(title)}`;
     window.location.href = url;
 }
 

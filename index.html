@@ -37,7 +37,7 @@
 
         <!-- Nickelodeon Section -->
         <section class="cartoon-section" id="section-nickelodeon">
-            <h2 class="section-title">📙 Nickelodeon Shows</h2>
+            <h2 class="section-title">🍊 Nickelodeon Shows</h2>
             <div class="cartoon-grid" id="grid-nickelodeon"></div>
         </section>
 
@@ -49,7 +49,17 @@
 
     </main>
 
-    <!-- Footer Section -->
+    <!-- Video Player Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePlayer()">&times;</span>
+            <h2 id="playerTitle">Now Playing</h2>
+            <div class="video-container">
+                <iframe id="videoPlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+<!-- Footer Section -->
     <footer class="footer">
         <p>&copy; 2026 Childhood Cartoon Portal. All rights reserved.</p>
         <p class="footer-disclaimer">Disclaimer: All cartoon character rights, images, and embedded videos belong to their respective creators and networks.</p>

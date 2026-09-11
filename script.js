@@ -1,7 +1,6 @@
 const cartoonData = {
     popular: [
         { 
-            <a href="Cartoon/Popular/Doremon/index.html">
             title: "Doraemon", 
             type: "Sci-Fi Comedy", 
             channel: "Disney (Hungama TV)", 
@@ -9,7 +8,6 @@ const cartoonData = {
             videoUrl: "https://www.youtube-nocookie.com/embed/uVu-D2rC-Lg?playlist=uVu-D2rC-Lg&autoplay=1&iv_load_policy=3&loop=1&start=",
             shortDesc: "A robotic cat travels back in time from the 22nd century to aid a young boy named Nobita Nobi using futuristic gadgets.",
             detailedInfo: "Doraemon is a Japanese manga and anime series created by Fujiko F. Fujio. The story revolves around a robotic cat named Doraemon, who travels back in time from the 22nd century to aid a young boy named Nobita Nobi using advanced gadgets from his 4D pocket."
-            </a>
         },
         { 
             title: "Tom and Jerry", 
@@ -164,10 +162,10 @@ const cartoonData = {
     ]
 };
 
-// Open the new website inside the 'doremon' folder in the SAME TAB
+// Open cartoon details interface in a NEW TAB
 function openCartoonInterface(categoryKey, title) {
-    const url = `Cartoon/Popular/Doremon?category=${encodeURIComponent(categoryKey)}&title=${encodeURIComponent(title)}`;
-    window.location.href = url;
+    const url = `details.html?category=${encodeURIComponent(categoryKey)}&title=${encodeURIComponent(title)}`;
+    window.open(url, '_blank');
 }
 
 // Render section grid
@@ -222,7 +220,7 @@ function handleSearch() {
     renderAllSections(query);
 }
 
-// Initializer for doremon page / details view
+// Initializer for details.html
 function initDetailsPage() {
     const urlParams = new URLSearchParams(window.location.search);
     const categoryParam = urlParams.get('category') || 'popular';
@@ -251,32 +249,42 @@ function initDetailsPage() {
             heroShortDesc.innerText = selectedCartoon.shortDesc || `${selectedCartoon.title} is an exciting ${selectedCartoon.type} show on Childhood.`;
         }
 
-        // Play Button -> Opens video stream in the SAME TAB
+        // Play Button -> Opens video stream directly in new tab
         const playBtn = document.getElementById('playBtn');
         if (playBtn) {
             playBtn.onclick = () => {
                 const playUrl = selectedCartoon.videoUrl.includes("?") 
                     ? `${selectedCartoon.videoUrl}&autoplay=1` 
                     : `${selectedCartoon.videoUrl}?autoplay=1`;
-                window.location.href = playUrl;
+                window.open(playUrl, '_blank');
             };
         }
 
-        // More Info Button -> Opens detailed pop-up inside the SAME TAB window
+        // More Info Button -> Opens detailed pop-up tab
         const moreInfoBtn = document.getElementById('moreInfoBtn');
         if (moreInfoBtn) {
             moreInfoBtn.onclick = () => {
                 const infoText = selectedCartoon.detailedInfo || `${selectedCartoon.title} is a famous ${selectedCartoon.type} cartoon series. Watch and explore your childhood nostalgia on Childhood Portal!`;
-                document.body.innerHTML = `
-                    <div style="background: #0f172a; color: #fff; font-family: 'Poppins', sans-serif; padding: 40px; min-height: 100vh;">
-                        <div style="max-width: 800px; margin: 0 auto;">
-                            <a href="javascript:location.reload()" style="color: #38bdf8; text-decoration: none; font-weight: bold; display: inline-block; margin-bottom: 20px;">← Back to Show</a>
-                            <h1 style="color: #38bdf8; border-bottom: 2px solid #f43f5e; padding-bottom: 10px;">${selectedCartoon.title}</h1>
-                            <span style="background: #f43f5e; padding: 4px 10px; border-radius: 4px; font-size: 0.9rem; font-weight: bold;">${selectedCartoon.type}</span>
-                            <p style="font-size: 1.1rem; margin-top: 20px; color: #cbd5e1; line-height: 1.8;">${infoText}</p>
-                        </div>
-                    </div>
-                `;
+                const infoWindow = window.open('', '_blank');
+                infoWindow.document.write(`
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>${selectedCartoon.title} - Info</title>
+                        <style>
+                            body { background: #0f172a; color: #fff; font-family: 'Poppins', sans-serif; padding: 40px; line-height: 1.8; max-width: 800px; margin: 0 auto; }
+                            h1 { color: #38bdf8; border-bottom: 2px solid #f43f5e; padding-bottom: 10px; }
+                            .tag { background: #f43f5e; padding: 4px 10px; border-radius: 4px; font-size: 0.9rem; font-weight: bold; }
+                            p { font-size: 1.1rem; margin-top: 20px; color: #cbd5e1; }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>${selectedCartoon.title}</h1>
+                        <span class="tag">${selectedCartoon.type}</span>
+                        <p>${infoText}</p>
+                    </body>
+                    </html>
+                `);
             };
         }
 

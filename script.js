@@ -234,6 +234,18 @@ const cartoonData = {
     ]
 };
 
+// Global variables for active video tracking
+let activeVideoUrl = "";
+
+// Helper function to search cartoon details across categories
+function findCartoonData(title) {
+    for (const key in cartoonData) {
+        const found = cartoonData[key].find(item => item.title === title);
+        if (found) return found;
+    }
+    return null;
+}
+
 // Render cards into a specific section grid
 function renderSection(categoryKey, containerId, filterText = "") {
     const grid = document.getElementById(containerId);
@@ -291,20 +303,42 @@ function handleSearch() {
     renderAllSections(query);
 }
 
-// Video Player Modal
+// Full-screen Hero Player Controls
 function openPlayer(title, videoUrl) {
+    activeVideoUrl = videoUrl;
+    const itemData = findCartoonData(title);
+
     const titleElement = document.getElementById("playerTitle");
+    const metaElement = document.getElementById("playerMeta");
+    const badgeElement = document.getElementById("playerBadge");
     const videoElement = document.getElementById("videoPlayer");
     const modalElement = document.getElementById("videoModal");
 
     if (titleElement) titleElement.innerText = title;
-    
+    if (metaElement && itemData) {
+        metaElement.innerText = `${itemData.type} • ${itemData.era || itemData.channel || 'Classic'}`;
+    }
+    if (badgeElement && itemData) {
+        badgeElement.innerText = itemData.era ? itemData.era : "MUST WATCH";
+    }
+
     if (videoElement) {
         const autoplayUrl = videoUrl.includes("?") ? `${videoUrl}&autoplay=1` : `${videoUrl}?autoplay=1`;
         videoElement.src = autoplayUrl;
     }
     
-    if (modalElement) modalElement.style.display = "flex";
+    if (modalElement) {
+        modalElement.style.display = "block";
+        document.body.style.overflow = "hidden";
+    }
+}
+
+function restartVideo() {
+    const videoElement = document.getElementById("videoPlayer");
+    if (videoElement && activeVideoUrl) {
+        const autoplayUrl = activeVideoUrl.includes("?") ? `${activeVideoUrl}&autoplay=1` : `${activeVideoUrl}?autoplay=1`;
+        videoElement.src = autoplayUrl;
+    }
 }
 
 function closePlayer() {
@@ -312,7 +346,10 @@ function closePlayer() {
     const modalElement = document.getElementById("videoModal");
 
     if (videoElement) videoElement.src = "";
-    if (modalElement) modalElement.style.display = "none";
+    if (modalElement) {
+        modalElement.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
 }
 
 // Initial render

@@ -3,76 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Childhood - Cartoon Portal</title>
+    <title id="pageTitle">Childhood - Cartoon Details</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="netflix-interface">
 
     <!-- Header Navbar -->
-    <header class="navbar">
+    <header class="navbar netflix-nav">
         <div class="logo">Child<span>hood</span></div>
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search cartoons..." onkeyup="handleSearch()">
-        </div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#">TV Shows</a>
+            <a href="#">Movies</a>
+            <a href="#">New & Popular</a>
+        </nav>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="content-area">
-
-        <!-- Main Page Heading -->
-        <h1 class="main-heading">Explore Your Favorite Childhood Cartoons</h1>
-
-        <!-- Popular Cartoons Section -->
-        <section class="cartoon-section" id="section-popular">
-            <h2 class="section-title">🔥 Popular Cartoons of All Time</h2>
-            <div class="cartoon-grid" id="grid-popular"></div>
-        </section>
-
-        <!-- Cartoon Network Section -->
-        <section class="cartoon-section" id="section-cartoon-network">
-            <h2 class="section-title">📺 Cartoon Network Shows</h2>
-            <div class="cartoon-grid" id="grid-cartoon-network"></div>
-        </section>
-
-        <!-- Nickelodeon Section -->
-        <section class="cartoon-section" id="section-nickelodeon">
-            <h2 class="section-title">📙 Nickelodeon Shows</h2>
-            <div class="cartoon-grid" id="grid-nickelodeon"></div>
-        </section>
-
-        <!-- Disney Section -->
-        <section class="cartoon-section" id="section-disney">
-            <h2 class="section-title">🏰 Disney Channel & XD Shows</h2>
-            <div class="cartoon-grid" id="grid-disney"></div>
-        </section>
-
-    </main>
-
-    <!-- Netflix-Style Hero Video View -->
-    <div id="videoModal" class="hero-player-modal">
-        <button class="hero-close-btn" onclick="closePlayer()">&times; Close</button>
-        <div class="hero-video-wrapper">
-            <iframe id="videoPlayer" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-        <div class="hero-overlay-gradient"></div>
+    <!-- Hero Feature Banner -->
+    <section class="hero-banner" id="heroBanner">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="hero-badge" id="playerBadge">SPECIAL FEATURE</span>
-            <h1 class="hero-title" id="playerTitle">Cartoon Title</h1>
-            <p class="hero-meta" id="playerMeta">Genre • Channel</p>
-            <p class="hero-description">Watch full episodes, classic clips, and relive your favorite childhood memories in high definition.</p>
-            <div class="hero-actions">
-                <button class="btn-play" onclick="restartVideo()">▶ Replay</button>
-                <button class="btn-info" onclick="closePlayer()">✖ Close View</button>
+            <div class="badge-tag">#1 in Shows Today</div>
+            <h1 class="hero-title" id="showTitle">Loading...</h1>
+            <p class="hero-description" id="showDescription">Loading details...</p>
+            
+            <div class="hero-buttons">
+                <button class="btn btn-play" id="playBtn">▶ Play</button>
+                <button class="btn btn-info" id="moreInfoBtn">ⓘ More Info</button>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Footer Section -->
+    <!-- Dynamic Section for More Shows from Same Category -->
+    <section class="content-area netflix-content">
+        <div class="cartoon-section">
+            <h2 class="section-title" id="categoryTitle">More Shows</h2>
+            <div class="cartoon-grid" id="relatedGrid"></div>
+        </div>
+    </section>
+
     <footer class="footer">
         <p>&copy; 2026 Childhood Cartoon Portal. All rights reserved.</p>
-        <p class="footer-disclaimer">Disclaimer: All cartoon character rights, images, and embedded videos belong to their respective creators and networks.</p>
     </footer>
+
     <script src="script.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            initShowPage();
+        });
+    </script>
 </body>
 </html>

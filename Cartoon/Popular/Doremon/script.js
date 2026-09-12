@@ -12,22 +12,22 @@ const cartoons = [
   },
   {
     id: "c2",
-    title: "Cosmic Quest",
+    title: "Tom and Jerry",
     category: "sci-fi",
     badge: "#2 in Sci-Fi Cartoons",
     shortInfo: "Traverse distant galaxies with space explorers uncovering ancient galactic secrets.",
     longInfo: "Full Details: An epic outer-space cartoon saga detailing galactic exploration, starship combat, alien civilizations, and deep space discovery.",
-    bgImage: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
+    bgImage: "https://i.pinimg.com/736x/30/4f/7e/304f7e6c2594371e06bdd5b20c30bf04.jpg",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
   {
     id: "c3",
-    title: "Laugh Factory",
+    title: "Shinchan",
     category: "comedy",
     badge: "#3 in Comedy Today",
     shortInfo: "Hilarious daily misadventures of eccentric friends living together in a crazy town.",
     longInfo: "Full Details: Loaded with slapstick humor and witty banter, this animated series highlights wild daily situations that result in chaotic outcomes.",
-    bgImage: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=1200&q=80",
+    bgImage: "https://i.pinimg.com/736x/0a/5f/07/0a5f073bd75fece31a6e68442f505fc5.jpg",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   }
 ];

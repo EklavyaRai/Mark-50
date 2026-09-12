@@ -256,7 +256,15 @@ function renderSection(categoryKey, containerId, filterText = "") {
     filtered.forEach(item => {
         const card = document.createElement("div");
         card.className = "card";
-        card.onclick = () => openPlayer(item.title, item.videoUrl);
+
+        // Redirect Doraemon card to the Doremon folder in the same tab
+        if (item.title.toLowerCase() === "doraemon") {
+            card.onclick = () => {
+                window.location.href = "./Cartoon/Popular/Doremon/index.html";
+            };
+        } else {
+            card.onclick = () => openPlayer(item.title, item.videoUrl);
+        }
 
         const imgSrc = item.thumbnail;
 

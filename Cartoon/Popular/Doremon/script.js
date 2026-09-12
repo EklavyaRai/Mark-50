@@ -5,8 +5,8 @@ const cartoons = [
     title: "Doremon",
     category: "action",
     badge: "#1 in Cartoons Today",
-    shortInfo: "Doraemon is a beloved Japanese iconic series created by Fujiko F. Fujio. The story revolves around a earless robotic cat named Doraemon, sent back in time from the 22nd century by Sewashi Nobi to help his lazy, clumsy, and academically struggling great-grandfather, Nobita Nobi.",
-    longInfo: "Full Details: Created by manga writing duo Fujiko F. Fujio in 1969, Doraemon is one of Japan's most iconic and longest-running anime franchises, blending slice-of-life comedy with science fiction and moral lessons about growth, friendship, and responsibility. The story begins in the 22nd century, where Sewashi Nobi, the great-great-grandson of Nobita Nobi, lives in extreme poverty due to the massive financial debts Nobita accumulated through bad luck, laziness, and poor decisions throughout his lifetime. To fix his family's lineage and secure a better future, Sewashi sends Doraemon—a blue, earless robotic cat equipped with a four-dimensional pocket full of futuristic gadgets—back in time to 20th-century Tokyo to guide, protect, and mentor the young Nobita into becoming a responsible adult. The standard narrative follows a consistent cautionary arc: Nobita faces an everyday problem such as getting bullied by his physically aggressive classmate Gian, being outshone by the wealthy and boastful Suneo, failing a school exam, or trying to impress his gentle crush Shizuka. Desperate for a quick fix, Nobita begs Doraemon for a tool—such as the Anywhere Door, Bamboo Copter, or Time Machine—only to inevitably misuse the invention out of greed, petty revenge, or sheer laziness despite Doraemon's warnings. This misuse escalates into chaotic consequences that teach Nobita ironic lessons about hard work and personal responsibility. Beyond the daily episodic comedy, feature-length movies elevate the cast into grand adventures across space, lost civilizations, and prehistoric eras, bringing out Nobita's hidden bravery, loyalty, and deep empathy. Ultimately, Doraemon endures because its sci-fi elements highlight a timeless human truth: shortcuts and magical gadgets cannot replace self-improvement, resilience, and genuine compassion.,
+    shortInfo: "Doraemon is a beloved Japanese iconic series created by Fujiko F. Fujio. The story revolves around an earless robotic cat named Doraemon, sent back in time from the 22nd century by Sewashi Nobi to help his lazy, clumsy, and academically struggling great-grandfather, Nobita Nobi.",
+    longInfo: `Full Details: Created by manga writing duo Fujiko F. Fujio in 1969, Doraemon is one of Japan's most iconic and longest-running anime franchises, blending slice-of-life comedy with science fiction and moral lessons about growth, friendship, and responsibility. The story begins in the 22nd century, where Sewashi Nobi, the great-great-grandson of Nobita Nobi, lives in extreme poverty due to the massive financial debts Nobita accumulated through bad luck, laziness, and poor decisions throughout his lifetime. To fix his family's lineage and secure a better future, Sewashi sends Doraemon—a blue, earless robotic cat equipped with a four-dimensional pocket full of futuristic gadgets—back in time to 20th-century Tokyo to guide, protect, and mentor the young Nobita into becoming a responsible adult. The standard narrative follows a consistent cautionary arc: Nobita faces an everyday problem such as getting bullied by his physically aggressive classmate Gian, being outshone by the wealthy and boastful Suneo, failing a school exam, or trying to impress his gentle crush Shizuka. Desperate for a quick fix, Nobita begs Doraemon for a tool—such as the Anywhere Door, Bamboo Copter, or Time Machine—only to inevitably misuse the invention out of greed, petty revenge, or sheer laziness despite Doraemon's warnings. This misuse escalates into chaotic consequences that teach Nobita ironic lessons about hard work and personal responsibility. Beyond the daily episodic comedy, feature-length movies elevate the cast into grand adventures across space, lost civilizations, and prehistoric eras, bringing out Nobita's hidden bravery, loyalty, and deep empathy. Ultimately, Doraemon endures because its sci-fi elements highlight a timeless human truth: shortcuts and magical gadgets cannot replace self-improvement, resilience, and genuine compassion.`,
     bgImage: "https://i.pinimg.com/736x/3b/7d/19/3b7d194a719a6248430ba4dd62c5f5a7.jpg",
     videoUrl: "https://www.youtube-nocookie.com/embed/uVu-D2rC-Lg?playlist=uVu-D2rC-Lg&autoplay=1&iv_load_policy=3&loop=1&start="
   },
@@ -34,18 +34,26 @@ const cartoons = [
 
 let selectedCartoon = cartoons[0];
 
-// Update Hero Interface
+// Safely update Hero Interface
 function updateHero(cartoon) {
   selectedCartoon = cartoon;
-  document.getElementById("hero-title").innerText = cartoon.title;
-  document.getElementById("hero-badge").innerText = cartoon.badge;
-  document.getElementById("hero-desc").innerText = cartoon.shortInfo;
-  document.getElementById("hero-banner").style.backgroundImage = `url('${cartoon.bgImage}')`;
+
+  const titleElem = document.getElementById("hero-title");
+  const badgeElem = document.getElementById("hero-badge");
+  const descElem = document.getElementById("hero-desc");
+  const bannerElem = document.getElementById("hero-banner");
+
+  if (titleElem) titleElem.innerText = cartoon.title;
+  if (badgeElem) badgeElem.innerText = cartoon.badge;
+  if (descElem) descElem.innerText = cartoon.shortInfo;
+  if (bannerElem) bannerElem.style.backgroundImage = `url('${cartoon.bgImage}')`;
 }
 
 // Render Thumbnails based on selected category tab
 function renderCards(categoryFilter = 'all') {
   const container = document.getElementById("cards-container");
+  if (!container) return;
+
   container.innerHTML = "";
 
   const filteredCartoons = categoryFilter === 'all' 
@@ -73,22 +81,31 @@ function filterCategory(cat, event) {
     document.querySelectorAll(".nav-links a").forEach(link => link.classList.remove("active"));
     event.target.classList.add("active");
   }
-  document.getElementById("section-heading").innerText = `${cat.toUpperCase()} Cartoons`;
+  
+  const headingElem = document.getElementById("section-heading");
+  if (headingElem) headingElem.innerText = `${cat.toUpperCase()} Cartoons`;
+  
   renderCards(cat);
 }
 
-// Button Events to open in the same tab
-document.getElementById("play-btn").addEventListener("click", () => {
-  window.location.href = selectedCartoon.videoUrl;
-});
-
-document.getElementById("info-btn").addEventListener("click", () => {
-  localStorage.setItem("selectedCartoon", JSON.stringify(selectedCartoon));
-  window.location.href = 'info.html';
-});
-
-// Initial Setup
+// Initial Setup & Event Listeners
 window.addEventListener("DOMContentLoaded", () => {
   updateHero(cartoons[0]);
   renderCards('all');
+
+  const playBtn = document.getElementById("play-btn");
+  const infoBtn = document.getElementById("info-btn");
+
+  if (playBtn) {
+    playBtn.addEventListener("click", () => {
+      window.location.href = selectedCartoon.videoUrl;
+    });
+  }
+
+  if (infoBtn) {
+    infoBtn.addEventListener("click", () => {
+      localStorage.setItem("selectedCartoon", JSON.stringify(selectedCartoon));
+      window.location.href = 'info.html';
+    });
+  }
 });

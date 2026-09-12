@@ -7,8 +7,8 @@ const cartoons = [
     badge: "#1 in Cartoons Today",
     shortInfo: "A teenage hero balances high school life while fighting supervillains in the city.",
     longInfo: "Full Details: Follow the superhero adventures of Peter Parker as he protects New York City from terrifying villains while battling everyday high school obstacles and personal life struggles.",
-    bgImage: "https://images.unsplash.com/photo-1635863138275-d9b33299680b?auto=format&fit=crop&w=1200&q=80",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    bgImage: "https://i.pinimg.com/736x/3b/7d/19/3b7d194a719a6248430ba4dd62c5f5a7.jpg",
+    videoUrl: "https://www.youtube-nocookie.com/embed/uVu-D2rC-Lg?playlist=uVu-D2rC-Lg&autoplay=1&iv_load_policy=3&loop=1&start="
   },
   {
     id: "c2",

@@ -2,11 +2,11 @@
 const cartoons = [
   {
     id: "c1",
-    title: "Spider-Man Animated",
+    title: "Doremon",
     category: "action",
     badge: "#1 in Cartoons Today",
-    shortInfo: "A teenage hero balances high school life while fighting supervillains in the city.",
-    longInfo: "Full Details: Follow the superhero adventures of Peter Parker as he protects New York City from terrifying villains while battling everyday high school obstacles and personal life struggles.",
+    shortInfo: "Doraemon is a beloved Japanese iconic series created by Fujiko F. Fujio. The story revolves around a earless robotic cat named Doraemon, sent back in time from the 22nd century by Sewashi Nobi to help his lazy, clumsy, and academically struggling great-grandfather, Nobita Nobi.",
+    longInfo: "Full Details: Doraemon is a beloved Japanese iconic series created by Fujiko F. Fujio. The story revolves around a earless robotic cat named Doraemon, sent back in time from the 22nd century by Sewashi Nobi to help his lazy, clumsy, and academically struggling great-grandfather, Nobita Nobi.",
     bgImage: "https://i.pinimg.com/736x/3b/7d/19/3b7d194a719a6248430ba4dd62c5f5a7.jpg",
     videoUrl: "https://www.youtube-nocookie.com/embed/uVu-D2rC-Lg?playlist=uVu-D2rC-Lg&autoplay=1&iv_load_policy=3&loop=1&start="
   },

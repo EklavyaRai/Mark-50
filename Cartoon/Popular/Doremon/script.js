@@ -77,14 +77,14 @@ function filterCategory(cat, event) {
   renderCards(cat);
 }
 
-// Button Events to open in new tab
+// Button Events to open in the same tab
 document.getElementById("play-btn").addEventListener("click", () => {
-  window.open(selectedCartoon.videoUrl, '_blank');
+  window.location.href = selectedCartoon.videoUrl;
 });
 
 document.getElementById("info-btn").addEventListener("click", () => {
   localStorage.setItem("selectedCartoon", JSON.stringify(selectedCartoon));
-  window.open('info.html', '_blank');
+  window.location.href = 'info.html';
 });
 
 // Initial Setup

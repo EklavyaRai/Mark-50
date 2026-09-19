@@ -257,10 +257,48 @@ function renderSection(categoryKey, containerId, filterText = "") {
         const card = document.createElement("div");
         card.className = "card";
 
-        // Redirect Doraemon card to the Doremon folder in the same tab
-        if (item.title.toLowerCase() === "doraemon") {
+        // Redirect cards to their corresponding cartoon folder in the same tab
+        const titleLower = item.title.toLowerCase();
+        
+        if (titleLower.includes("doraemon")) {
             card.onclick = () => {
                 window.location.href = "./Cartoon/Popular/Doremon/index.html";
+            };
+        } else if (titleLower.includes("tom and jerry")) {
+            card.onclick = () => {
+                window.location.href = "./Cartoon/Popular/Tom and Jerry/index.html";
+            };
+        } else if (titleLower.includes("shinchan")) {
+            card.onclick = () => {
+                window.location.href = "./Cartoon/Popular/Shinchan/index.html";
+            };
+        } else if (titleLower.includes("ninja hattori")) {
+            card.onclick = () => {
+                window.location.href = "./Cartoon/Popular/Ninja Hattori/index.html";
+            };
+        } else if (titleLower.includes("ben 10")) {
+            card.onclick = () => {
+                window.location.href = "./Cartoon/Popular/Ben 10/index.html";
+            };
+        } else if (titleLower.includes("pokémon") || titleLower.includes("pokemon")) {
+            card.onclick = () => {
+                window.location.href = "./Cartoon/Popular/Pokémon/index.html";
+            };
+        } else if (titleLower.includes("spongebob")) {
+            card.onclick = () => {
+                window.location.href = "./Cartoon/Popular/SpongeBob SquarePants/index.html";
+            };
+        } else if (titleLower.includes("phineas")) {
+            card.onclick = () => {
+                window.location.href = "./Cartoon/Popular/Phineas and Ferb/index.html";
+            };
+        } else if (titleLower.includes("oggy")) {
+            card.onclick = () => {
+                window.location.href = "./Cartoon/Popular/Oggy and the Cockroaches/index.html";
+            };
+        } else if (titleLower.includes("dragon ball")) {
+            card.onclick = () => {
+                window.location.href = "./Cartoon/Popular/Dragon Ball Z/index.html";
             };
         } else {
             card.onclick = () => openPlayer(item.title, item.videoUrl);

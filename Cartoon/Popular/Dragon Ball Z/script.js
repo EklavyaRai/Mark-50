@@ -37,7 +37,7 @@ const cartoons = [
     badge: "#4 in Action Cartoons",
     shortInfo: "A young ninja named Kanzo Hattori moves to the city to live with Kenichi Mitsuba and protect him from troubles.",
     longInfo: "Full Details: Ninja Hattori follows Kanzo Hattori, an Iga Ninja who moves to town to attend normal school with Kenichi Mitsuba, an average boy. Joined by his ninja dog Shishimaru and brother Shinzo, Hattori uses ninja skills and gadgets to resolve Kenichi's everyday problems and battle rivalry from Kemumaki, the Koga Ninja.",
-    bgImage: "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&auto=format&fit=crop",
+    bgImage: "https://i.pinimg.com/736x/d5/6a/e3/d56ae300c79ed1a355529ce5c540782a.jpg",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
   {
@@ -47,7 +47,7 @@ const cartoons = [
     badge: "#1 in Action Cartoons",
     shortInfo: "Ben Tennyson discovers the Omnitrix, a device allowing him to transform into powerful alien heroes.",
     longInfo: "Full Details: Ben Tennyson, his cousin Gwen, and Grandpa Max embark on a cross-country trip when Ben stumbles upon the Omnitrix, a device containing DNA from multiple alien species. As Ben grows into Alien Force, he tackles extraterrestrial threats with new alien forms alongside Gwen and Kevin Levin to protect Earth from galactic villainy.",
-    bgImage: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800&auto=format&fit=crop",
+    bgImage: "https://i.pinimg.com/1200x/38/c4/90/38c4907765c86a29a0c7813f8e4cd646.jpg",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
   {
@@ -57,7 +57,7 @@ const cartoons = [
     badge: "#2 in Action Cartoons",
     shortInfo: "Ash Ketchum and Pikachu journey across various regions to become the ultimate Pokémon Master.",
     longInfo: "Full Details: Follow ten-year-old Ash Ketchum from Pallet Town and his partner Pikachu as they travel across different regions, challenge gym leaders, enter Pokemon Leagues, make lifelong friends, and foil the scheming Team Rocket on their path toward Pokemon mastery.",
-    bgImage: "https://images.unsplash.com/photo-1613771404784-3a5686aa2be3?w=800&auto=format&fit=crop",
+    bgImage: "https://i.pinimg.com/736x/35/04/44/350444c2abb255ffaf7e254d463124fa.jpg",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
   {
@@ -67,7 +67,7 @@ const cartoons = [
     badge: "#1 in Comedy Cartoons",
     shortInfo: "The wacky, aquatic adventures of an optimistic sea sponge living in Bikini Bottom.",
     longInfo: "Full Details: Deep under the sea in the underwater city of Bikini Bottom lives SpongeBob SquarePants, a energetic yellow sea sponge who works as a fry cook at the Krusty Krab. Alongside his best friend Patrick Star, neighbor Squidward, and pet snail Gary, SpongeBob turns simple daily tasks into chaotic nautical misadventures.",
-    bgImage: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&auto=format&fit=crop",
+    bgImage: "https://i.pinimg.com/1200x/15/28/31/1528315696535196b07d7bcde8c1eed4.jpg",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
   {
@@ -77,7 +77,7 @@ const cartoons = [
     badge: "#2 in Comedy Cartoons",
     shortInfo: "Two stepbrothers invent grand schemes during summer vacation while their pet platypus works as a secret agent.",
     longInfo: "Full Details: Phineas and Ferb are determined to make every day of summer count by constructing wild inventions like rollercoasters, time machines, and backyard beaches. Meanwhile, their sister Candace tries to bust them to their mom, and their pet platypus Perry leads a double life as Agent P fighting evil Dr. Doofenshmirtz.",
-    bgImage: "https://images.unsplash.com/photo-1563089145-599997674d42?w=800&auto=format&fit=crop",
+    bgImage: "https://i.pinimg.com/1200x/31/8f/09/318f09c1431bf7ad9a758c0442a4f24c.jpg",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
   {
@@ -87,7 +87,7 @@ const cartoons = [
     badge: "#4 in Comedy Cartoons",
     shortInfo: "Oggy the cat tries to enjoy a peaceful life, but three mischievous cockroaches constantly ruin his day.",
     longInfo: "Full Details: Oggy is a lazy blue cat who prefers spending his days watching television and cooking. However, his quiet domestic routine is constantly disrupted by Joey, Dee Dee, and Marky—three mischievous cockroaches who live in his house and take delight in causing slapstick mayhem.",
-    bgImage: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&auto=format&fit=crop",
+    bgImage: "https://i.pinimg.com/736x/dd/a7/67/dda7670d98e43c93d466bf234750542b.jpg",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
   {
@@ -97,7 +97,7 @@ const cartoons = [
     badge: "#3 in Action Cartoons",
     shortInfo: "Goku and the Z-Fighters defend Earth against powerful extraterrestrial warriors and villains.",
     longInfo: "Full Details: Continuing the adventures of Son Goku, Dragon Ball Z explores his Saiyan heritage and follows the Z-Fighters as they defend the Earth against powerful galactic conquerors, Androids, and magical beings like Vegeta, Frieza, Cell, and Majin Buu through high-powered martial arts combat.",
-    bgImage: "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&auto=format&fit=crop",
+    bgImage: "https://i.pinimg.com/736x/74/79/8b/74798b82e4e8b085eefd60c375f039e0.jpg",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   }
 ];

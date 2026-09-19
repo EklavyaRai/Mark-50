@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cartoon Info</title>
+  <style>
+    body {
+      background-color: #141414;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
+    .info-box {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #1f1f1f;
+      padding: 30px;
+      border-radius: 8px;
+    }
+    h1 { color: #e50914; margin-bottom: 10px; }
+    p { line-height: 1.6; font-size: 1.1rem; color: #ddd; }
+  </style>
+</head>
+<body>
+  <div class="info-box">
+    <h1 id="title">Loading...</h1>
+    <h3 id="badge" style="color: #aaa; margin-bottom: 20px;"></h3>
+    <p id="long-info"></p>
+  </div>
+
+  <script>
+    const cartoon = JSON.parse(localStorage.getItem("selectedCartoon"));
+    if (cartoon) {
+      document.getElementById("title").innerText = cartoon.title;
+      document.getElementById("badge").innerText = cartoon.badge;
+      document.getElementById("long-info").innerText = cartoon.longInfo;
+    }
+  </script>
+</body>
+</html>
